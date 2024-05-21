@@ -536,7 +536,7 @@ contract Router is IRouter, ERC2771Context {
             address gauge = IVoter(voter).gauges(pool);
             IERC20(pool).safeIncreaseAllowance(address(gauge), liquidity);
             IGauge(gauge).deposit(liquidity, to);
-            IERC20(pool).safeDecreaseAllowance(address(gauge), 0);
+            IERC20(pool).safeDecreaseAllowance(address(gauge), liquidity);
         } else {
             liquidity = IPool(pool).mint(to);
         }

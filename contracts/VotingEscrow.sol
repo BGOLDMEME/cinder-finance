@@ -857,7 +857,7 @@ contract VotingEscrow is IVotingEscrow, ERC2771Context, ReentrancyGuard {
             address _token = token;
             IERC20(_token).safeIncreaseAllowance(_lockedManagedReward, _value);
             IReward(_lockedManagedReward).notifyRewardAmount(_token, _value);
-            IERC20(_token).safeDecreaseAllowance(_lockedManagedReward, 0);
+            IERC20(_token).safeDecreaseAllowance(_lockedManagedReward, _value);
         }
 
         emit MetadataUpdate(_tokenId);

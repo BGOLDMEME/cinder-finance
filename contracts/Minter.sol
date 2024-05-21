@@ -106,7 +106,7 @@ contract Minter is IMinter {
             ve.safeTransferFrom(address(this), params.lockedWallets[i], _tokenId);
             emit DistributeLocked(params.lockedWallets[i], params.lockedAmounts[i], _tokenId);
         }
-        aero.safeDecreaseAllowance(address(ve), 0);
+        aero.safeDecreaseAllowance(address(ve), _sum);
     }
 
     /// @inheritdoc IMinter

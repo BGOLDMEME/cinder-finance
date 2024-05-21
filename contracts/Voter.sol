@@ -490,7 +490,7 @@ contract Voter is IVoter, ERC2771Context, ReentrancyGuard {
             claimable[_gauge] = 0;
             IERC20(rewardToken).safeIncreaseAllowance(_gauge, _claimable);
             IGauge(_gauge).notifyRewardAmount(_claimable);
-            IERC20(rewardToken).safeDecreaseAllowance(_gauge, 0);
+            IERC20(rewardToken).safeDecreaseAllowance(_gauge, _claimable);
             emit DistributeReward(_msgSender(), _gauge, _claimable);
         }
     }

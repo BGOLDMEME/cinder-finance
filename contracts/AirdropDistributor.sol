@@ -41,6 +41,6 @@ contract AirdropDistributor is IAirdropDistributor, Ownable (msg.sender)  {
             ve.safeTransferFrom(address(this), _wallet, _tokenId);
             emit Airdrop(_wallet, _amount, _tokenId);
         }
-        aero.safeDecreaseAllowance(address(ve), 0);
+        aero.safeDecreaseAllowance(address(ve), _sum);
     }
 }
